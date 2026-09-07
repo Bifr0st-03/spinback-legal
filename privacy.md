@@ -4,168 +4,162 @@
 **Last updated:** 7 September 2026
 **Application:** SpinBack (Android package `com.spinback.app`)
 **Provider:** Jacopo Maria Caira
-**Contact:** jacopo.caira@outlook.com
+**Contact:** [jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)
 
 ## The short version
 
-SpinBack does not collect your data. There is no account to create, no server
-to send anything to, and no third party involved.
+SpinBack processes your app usage information, settings, activities and spin history locally on your device. The app does not transmit this information to the developer or to third parties.
 
-Everything the app measures and everything you create stays in the app's
-private storage on your device. We, as the developer, never see it. It is not
-uploaded, not backed up to us, not sold, not shared, and not used for
-advertising or profiling.
+There is no account, developer-operated backend, advertising, analytics or tracking SDK. SpinBack does not request the Android `INTERNET` permission.
 
-SpinBack does not request the Android `INTERNET` permission. The app is
-technically incapable of sending data anywhere, and you can verify this
-yourself in the app's permission list.
+Android may back up or transfer app data through operating-system features, depending on your device settings and the app’s backup configuration. We do not operate those services or have access to those backups.
+
+If you contact us by email, we receive the information you choose to send so that we can respond.
 
 ## Who is responsible
 
-Jacopo Maria Caira is the data controller for the limited purposes
-described below. You can reach us at jacopo.caira@outlook.com.
+SpinBack is provided by Jacopo Maria Caira.
 
-Because SpinBack processes everything locally on your device and we receive no
-information from it, in practice we hold no personal data about you.
+For personal information received when you contact us, Jacopo Maria Caira is the data controller. You can contact us at **[jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)**.
+
+The app usage information and other local app data described below are processed on your device and are not made available to us.
 
 ## What the app accesses on your device
 
-To do its job, SpinBack reads the following **on your device only**.
+### 1. App usage data
 
-### 1. App usage data (Usage Access)
+SpinBack uses Android’s Usage Access permission (`android.permission.PACKAGE_USAGE_STATS`) to measure foreground usage time for the apps you choose to monitor and determine when your configured limit has been reached.
 
-SpinBack uses Android's Usage Access permission
-(`android.permission.PACKAGE_USAGE_STATS`) to measure how long the apps *you*
-have chosen to monitor have been in the foreground today.
+You enable this access in Android’s settings, usually under **Settings → Special app access → Usage access**. You can revoke it there at any time. The exact path may vary by device.
 
-- This is the core function of the app: without it, SpinBack cannot tell when
-  you have passed your own scrolling limit.
-- Android does not grant this permission through a normal pop-up. You must
-  enable it deliberately in **Settings → Special app access → Usage access**,
-  and you can revoke it there at any time.
-- SpinBack reads only the time spent in apps, and only for the apps you
-  selected. It cannot see, and does not attempt to see, the content of those
-  apps: no messages, no posts, no browsing history, no keystrokes, no
-  screenshots.
-- Usage figures are computed on the device and are used to decide whether to
-  show you a notification. They are never transmitted.
+SpinBack uses app usage information for its monitoring function. It does not read messages, posts, browsing history, keystrokes or screenshots from the apps you monitor.
 
-### 2. The list of apps installed on your device
+Usage information is processed locally and is not transmitted to us or to third parties.
 
-To let you choose which apps to monitor, SpinBack asks Android for the list of
-apps that have a launcher icon. It uses a scoped `<queries>` declaration rather
-than the broad `QUERY_ALL_PACKAGES` permission, so it sees launchable apps
-only. This list is displayed to you and is never transmitted.
+### 2. Installed apps
+
+SpinBack queries apps with a launcher activity so that you can choose which apps to monitor. It uses a scoped `<queries>` declaration rather than the broad `QUERY_ALL_PACKAGES` permission.
+
+The resulting app list is displayed on your device and is not transmitted.
 
 ### 3. Notifications
 
-SpinBack asks for permission to post notifications
-(`android.permission.POST_NOTIFICATIONS`) because the notification *is* the
-product: it is how the app tells you that you have passed your limit. If you
-deny it, the app tells you plainly that it can no longer do anything useful.
+On Android versions that require it, SpinBack requests `android.permission.POST_NOTIFICATIONS` to send reminders when you reach your configured usage limit.
+
+You can deny or revoke this permission. Without it, SpinBack cannot deliver those notifications.
 
 ### 4. Restart after reboot
 
-SpinBack declares `android.permission.RECEIVE_BOOT_COMPLETED` so that
-monitoring resumes after you restart your phone. Nothing is read or sent at
-boot; the app only re-arms its own internal timer.
+SpinBack declares `android.permission.RECEIVE_BOOT_COMPLETED` so that it can schedule monitoring again after your device restarts.
 
-## What the app stores, and where
+This permission is used to resume the app’s monitoring schedule, not to transmit data.
 
-All of the following is written to SpinBack's private app storage, which other
-apps cannot read:
+## What the app stores
 
-- Your settings: the apps you monitor, your time limit, quiet hours, and
-  notification preferences.
-- Your wheel content: the activities you added, their icons and how often you
-  want them to come up.
-- Your history: the record of each spin — when it happened, which activity came
-  up, and what you chose to do about it — used to show your own statistics.
-- Internal monitoring state: how much time has counted since your last break.
+SpinBack stores the following in its private app storage:
 
-There is no cloud copy. If Android device backup is enabled on your phone, your
-operating system may include app data in the backup it makes to your own
-Google account; that backup is governed by Google's terms and your device
-settings, not by us, and we have no access to it.
+* **Settings:** monitored apps, usage limits, quiet hours and notification preferences.
+* **Wheel content:** activities, icons and selection weights.
+* **Spin history:** when a spin occurred, the selected activity and your response, used to display your statistics.
+* **Monitoring state:** information needed to track usage since your last break.
 
-## What we do not do
+Android’s application sandbox normally prevents other apps from directly accessing this private storage.
 
-To be explicit, SpinBack does not:
+We do not receive or maintain a server-side copy of this information.
 
-- create accounts or ask for your name, email address, or phone number;
-- send any data to us or to any third party;
-- include advertising, advertising SDKs, or ad identifiers;
-- include analytics, telemetry, or crash-reporting SDKs;
-- track you across apps or websites;
-- build a profile of you, or make automated decisions about you;
-- sell, rent, or share your data with anyone.
+## Android backups and device transfers
 
-SpinBack contains no third-party code that collects data. Its only libraries
-are Google's AndroidX components, which run locally and perform no data
-collection of their own.
+Depending on your device settings and the app’s backup configuration, Android may include some app data in a system backup or transfer it to another device.
+
+These processes are handled by your operating system and backup provider under their own terms and privacy policies. We do not have access to those backups.
+
+Deleting local app data or uninstalling SpinBack does not necessarily delete existing system backups. Android may restore previously backed-up data when you reinstall the app or set up another device.
+
+To manage those copies, use your device’s backup and restore settings.
+
+## Advertising, analytics and third-party libraries
+
+SpinBack does not:
+
+* create user accounts;
+* request your name, email address or phone number within the app;
+* transmit your app usage information, settings, activities or spin history;
+* include advertising or use advertising identifiers;
+* include analytics, telemetry or crash-reporting SDKs;
+* use your information for advertising profiles or cross-service tracking;
+* sell, rent or share your local app data.
+
+Monitoring the apps you select is used only to provide the usage reminders and statistics described in this policy.
+
+SpinBack uses AndroidX components for local app functionality. It does not include third-party SDKs configured to collect or transmit your personal information.
+
+## If you contact us
+
+If you email **[jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)**, we receive your email address, your message and any attachments or other information you choose to provide.
+
+We use this information to respond, troubleshoot reported issues and manage the request. Please avoid sending sensitive information or information about other people unless necessary.
+
+Support correspondence is handled through our email provider, Microsoft, and is subject to that provider’s applicable data-handling arrangements.
+
+Where applicable under data protection law, we process support correspondence on the basis of our legitimate interests in assisting users and maintaining SpinBack. Where your request concerns a contractual obligation or legal requirement, the relevant contractual or legal basis may apply.
+
+We retain correspondence only as long as reasonably necessary to handle the request and related follow-up, or to meet applicable legal obligations or establish, exercise or defend legal claims. The appropriate period depends on the nature of the request.
 
 ## Purchases
 
 SpinBack is currently free and contains no in-app purchases.
 
-If a paid "Pro" version is introduced in the future, the payment will be
-handled entirely by the app store (Google Play or the Apple App Store). Those
-stores process the transaction under their own privacy policies. We would
-receive only the aggregated, anonymous sales reporting the store provides. We
-would never receive or store your payment card details.
+If this changes, we will update this policy as necessary before introducing any new processing of personal information.
 
-## Data retention and deletion
+## Retention and deletion of local app data
 
-Your data lives on your device for as long as you keep the app.
+Local app data remains on your device until it is deleted through the app, Android’s storage controls or uninstallation, subject to any system backup and restore features described above.
 
-You are in full control of deleting it:
+You can:
 
-- **Clear app data:** Settings → Apps → SpinBack → Storage → Clear data. This
-  erases your settings, wheels and history immediately.
-- **Uninstall the app:** removing SpinBack deletes all of its data from your
-  device.
-- **Revoke usage access** at any time in Settings → Special app access → Usage
-  access; SpinBack will stop measuring anything.
+* **Clear app data:** usually under **Settings → Apps → SpinBack → Storage → Clear data** or **Clear storage**. This removes the app’s local settings, activities, history and monitoring state.
+* **Uninstall SpinBack:** this removes its private local app data, subject to Android’s uninstall and data-retention options.
+* **Revoke Usage Access:** this prevents SpinBack from obtaining further usage information through that permission. Revoking access does not itself delete information already stored.
 
-Because we never receive your data, there is nothing for us to delete on our
-side and no deletion request you need to send us.
+We cannot remotely access or delete the app data stored on your device.
+
+If you have contacted us by email, you may separately request deletion of your support correspondence, subject to applicable retention obligations.
 
 ## Your rights
 
-If you are in the European Economic Area or the United Kingdom, data protection
-law gives you rights of access, rectification, erasure, restriction,
-portability and objection regarding personal data held about you.
+Depending on your location and the applicable law, you may have rights to access, correct, delete or obtain a copy of your personal information, restrict its processing or object to certain processing.
 
-We do not hold personal data about you, so there is nothing for us to disclose,
-correct or erase. The controls listed above give you direct and complete
-control over the data on your device. You may still contact us at
-[CONTACT_EMAIL] with any question, and you have the right to lodge a complaint
-with your local data protection authority.
+For local app data that we do not receive, use the device controls described above. For personal information you have provided directly to us, such as support correspondence, contact **[jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)**.
+
+Where applicable, you also have the right to lodge a complaint with your local data protection authority.
 
 ## Children
 
-SpinBack is not directed at children and is not intended for use by anyone
-under the age of 13 (or the minimum age required in your country). We do not
-knowingly collect data from anyone, children included.
+SpinBack is not directed at children under 13. Any higher minimum age required by applicable law also applies.
+
+The app does not transmit local app data to us, and we do not request age or account information within it.
+
+If you believe a child has provided personal information to us through support correspondence, please contact us so that we can address it appropriately.
 
 ## Security
 
-SpinBack relies on the security model of your device: app data is stored in
-private app storage that other applications cannot access, protected by your
-device's own encryption and lock screen. Since nothing is transmitted, there is
-no data in transit to intercept and no server of ours that could be breached.
+SpinBack relies on Android’s application sandbox and the security protections of your device to protect locally stored app data.
+
+Device security also depends on factors such as operating-system updates, screen-lock settings and whether the device has been modified or compromised. No security measure can provide an absolute guarantee.
+
+We do not operate a server that receives your local app usage data, settings, activities or spin history.
 
 ## Changes to this policy
 
-If a future version of SpinBack changes how data is handled, we will update
-this policy and change the "Last updated" date above before releasing that
-version. Significant changes will also be described in the release notes on the
-app store. Continuing to use the app after an update means you accept the
-revised policy.
+We will update this policy when necessary to reflect changes in SpinBack or its data-handling practices. The “Last updated” date identifies the latest revision.
+
+For material changes, we will provide an appropriate notice, such as an in-app notice or release notes, depending on the nature of the change.
+
+If a change requires your consent under applicable law, we will request it before carrying out the relevant processing. Continued use of the app does not, by itself, constitute consent to processing that requires it.
 
 ## Contact
 
-Questions about this policy or about privacy in SpinBack:
+For privacy questions or requests:
 
-**jacopo.caira@outlook.com**
-
+**Jacopo Maria Caira**
+**[jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)**
