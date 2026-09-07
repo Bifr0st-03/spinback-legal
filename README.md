@@ -1,3 +1,1 @@
 # spinback-legal
-
-/privacy.md
