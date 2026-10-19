@@ -1,7 +1,7 @@
 # Privacy Policy for SpinBack
 
 **Effective date:** 7 September 2026
-**Last updated:** 7 September 2026
+**Last updated:** 19 October 2026
 **Application:** SpinBack (Android package `com.spinback.app`)
 **Provider:** Jacopo Maria Caira
 **Contact:** [jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)
@@ -53,6 +53,20 @@ You can deny or revoke this permission. Without it, SpinBack cannot deliver thos
 SpinBack declares `android.permission.RECEIVE_BOOT_COMPLETED` so that it can schedule monitoring again after your device restarts.
 
 This permission is used to resume the app’s monitoring schedule, not to transmit data.
+
+### 5. Display over other apps (optional)
+
+SpinBack declares `android.permission.SYSTEM_ALERT_WINDOW` for the optional **Please spin me back** mode. When that mode is on and you pass your limit, SpinBack opens its own wheel screen instead of sending a notification. Android allows an app in the background to bring itself to the foreground only with this permission.
+
+SpinBack does not draw any window, overlay or view on top of other apps. The mode is off by default: you turn it on in the app and grant the permission in Android’s settings. Without the permission, SpinBack sends a notification instead.
+
+This permission gives the app no access to data.
+
+### 6. Alarms & reminders (optional)
+
+SpinBack declares `android.permission.SCHEDULE_EXACT_ALARM` so that, if you allow it in Android’s settings, its monitoring timer runs at the moment you reach your limit instead of a little later. It is off unless you allow it, and the app works without it.
+
+The timer never wakes your device: it runs only while you are already using it. This permission gives the app no access to data.
 
 ## What the app stores
 
