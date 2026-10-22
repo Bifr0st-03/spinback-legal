@@ -1,7 +1,7 @@
 # Terms of Use for SpinBack
 
 **Effective date:** 7 September 2026
-**Last updated:** 7 September 2026
+**Last updated:** 22 October 2026
 **Application:** SpinBack (Android package `com.spinback.app`)
 **Provider:** Jacopo Maria Caira (“we”, “us”)
 **Contact:** [jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)
@@ -109,11 +109,13 @@ The Privacy Policy is an informational notice. Accepting these Terms does not it
 
 ## 11. Price and purchases
 
-SpinBack is currently free of charge and contains no in-app purchases or advertising.
+SpinBack is free of charge and contains no advertising. All of its features are available without paying.
 
-If paid features are introduced, their price and applicable conditions will be presented before you make a purchase. You will not be charged merely because you installed or used the current free version.
+The App offers one optional, one-time in-app purchase, **SpinBack supporter**. It is a way to support the App’s development: it does not unlock features, and the App works the same without it. Its price is shown by Google Play, in your local currency, before you buy.
 
-Any future purchase arrangements will be subject to applicable law and the relevant store’s terms. Nothing in these Terms removes any mandatory refund, cancellation or other consumer right.
+Purchases are made through Google Play and are subject to Google Play’s terms, including its refund policies. If a purchase is refunded or revoked, the supporter badge is removed. You will not be charged merely because you installed or used the App.
+
+Nothing in these Terms removes any mandatory refund, cancellation or other consumer right.
 
 ## 12. Updates and changes to the App
 

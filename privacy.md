@@ -1,7 +1,7 @@
 # Privacy Policy for SpinBack
 
 **Effective date:** 7 September 2026
-**Last updated:** 19 October 2026
+**Last updated:** 22 October 2026
 **Application:** SpinBack (Android package `com.spinback.app`)
 **Provider:** Jacopo Maria Caira
 **Contact:** [jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)
@@ -10,7 +10,7 @@
 
 SpinBack processes your app usage information, settings, activities and spin history locally on your device. The app does not transmit this information to the developer or to third parties.
 
-There is no account, developer-operated backend, advertising, analytics or tracking SDK. SpinBack does not request the Android `INTERNET` permission.
+There is no account, developer-operated backend, advertising, analytics or tracking SDK. The only part of SpinBack that uses the network is Google Play’s billing library, which handles the optional supporter purchase. SpinBack’s own code sends nothing over the network.
 
 Android may back up or transfer app data through operating-system features, depending on your device settings and the app’s backup configuration. We do not operate those services or have access to those backups.
 
@@ -20,7 +20,7 @@ If you contact us by email, we receive the information you choose to send so tha
 
 SpinBack is provided by Jacopo Maria Caira.
 
-For personal information received when you contact us, Jacopo Maria Caira is the data controller. You can contact us at **[jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)**.
+For personal information received when you contact us, or that Google Play provides to us about purchases, Jacopo Maria Caira is the data controller. You can contact us at **[jacopo.caira@outlook.com](mailto:jacopo.caira@outlook.com)**.
 
 The app usage information and other local app data described below are processed on your device and are not made available to us.
 
@@ -68,6 +68,14 @@ SpinBack declares `android.permission.SCHEDULE_EXACT_ALARM` so that, if you allo
 
 The timer never wakes your device: it runs only while you are already using it. This permission gives the app no access to data.
 
+### 7. Network access and Google Play billing
+
+SpinBack’s manifest includes `android.permission.INTERNET` and `com.android.vending.BILLING`. Both are added by the Google Play Billing Library, which SpinBack uses only for the optional supporter purchase described under *Purchases*.
+
+SpinBack’s own code does not open network connections. It does not transmit your app usage information, settings, activities or spin history, through the billing library or otherwise.
+
+The billing library communicates with the Google Play Store app on your device and, through it, with Google. According to Google, the library also logs information about its own operation, such as whether billing requests succeed and connection problems, to improve the library and provide support. Google processes that information under its own terms and privacy policy; we do not receive it.
+
 ## What the app stores
 
 SpinBack stores the following in its private app storage:
@@ -76,6 +84,7 @@ SpinBack stores the following in its private app storage:
 * **Wheel content:** activities, icons and selection weights.
 * **Spin history:** when a spin occurred, the selected activity and your response, used to display your statistics.
 * **Monitoring state:** information needed to track usage since your last break.
+* **Supporter status:** whether you own the supporter purchase, so that the badge can show without a connection.
 
 Android’s application sandbox normally prevents other apps from directly accessing this private storage.
 
@@ -99,13 +108,13 @@ SpinBack does not:
 * request your name, email address or phone number within the app;
 * transmit your app usage information, settings, activities or spin history;
 * include advertising or use advertising identifiers;
-* include analytics, telemetry or crash-reporting SDKs;
+* include analytics or crash-reporting SDKs, or collect telemetry about how you use the app;
 * use your information for advertising profiles or cross-service tracking;
 * sell, rent or share your local app data.
 
 Monitoring the apps you select is used only to provide the usage reminders and statistics described in this policy.
 
-SpinBack uses AndroidX components for local app functionality. It does not include third-party SDKs configured to collect or transmit your personal information.
+SpinBack uses AndroidX components for local app functionality. It also uses two Google Play libraries: the In-App Updates library, which asks the Play Store app on your device whether a newer version exists, and the Play Billing Library, described above. It does not include third-party SDKs configured to collect or transmit your personal information.
 
 ## If you contact us
 
@@ -121,9 +130,13 @@ We retain correspondence only as long as reasonably necessary to handle the requ
 
 ## Purchases
 
-SpinBack is currently free and contains no in-app purchases.
+SpinBack is free, and all of its features are available without paying. It offers one optional, one-time in-app purchase, **SpinBack supporter**, which unlocks nothing and shows a thank-you badge in the app.
 
-If this changes, we will update this policy as necessary before introducing any new processing of personal information.
+Purchases are processed by Google Play under Google’s terms and privacy policy. We do not receive your card number or other payment details. Google Play makes transaction information available to us in the Google Play Console, such as the order number, product, date, price and status. We use it to manage the sale and any refund, and to meet our accounting and tax obligations. Where applicable under data protection law, the basis for this processing is the performance of the purchase contract and compliance with legal obligations, and we keep it for as long as those obligations require.
+
+On your device, SpinBack asks Google Play whether you own the supporter purchase and stores the result in its private storage. It confirms (acknowledges) new purchases with Google Play, as Google requires for every purchase. It does not send this information anywhere else.
+
+If a purchase is refunded or revoked, Google Play stops reporting it and the badge disappears.
 
 ## Retention and deletion of local app data
 
